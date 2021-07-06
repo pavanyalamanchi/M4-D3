@@ -17,10 +17,8 @@ class LatestRelease extends Component{
                                             src={item.img}
                                             alt="First slide"
                                         />
-                                        <Carousel.Caption className='text-success'>
                                             <h3>{item.title}</h3>
                                             <p>{item.category}</p>
-                                        </Carousel.Caption>
                                     </Carousel.Item>
                                 ))
                             }
