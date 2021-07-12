@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import items from './data/fantasy.json'
 import BookList from './components/BookList'
 import {Row} from 'react-bootstrap'
-import FilterBook from './components/FilterBook'
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
     <JumboContent/>
     <Warning text='this is a warning sign'/>
     <MyBadge color='success' text='Success'/>
-    <FilterBook/>
     <Row>
     <BookList items={items}/>
     </Row>

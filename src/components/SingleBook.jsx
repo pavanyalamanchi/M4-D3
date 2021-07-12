@@ -1,26 +1,34 @@
-import { Card, Button, Col} from "react-bootstrap";
+import { Card} from "react-bootstrap";
 import { Component } from "react";
 import "../App.css";
+import CommentArea from './CommentArea'
 
 class SingleBook extends Component {
+
+state = {
+  selected: false
+}
+
   bookClick = (e) => {
-    e.target.parentNode.parentNode.classList.toggle("borderBook");
+    e.target.parentNode.classList.toggle("borderBookToggle");
+    this.setState({selected: !this.state.selected})
   };
 
   render() {
     return (
-            <Col lg={3}>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={this.props.book.img} />
+            <div className='d-flex flex-column align-items-center'>
+        <Card style={{ width: '18rem' }} className='borderBook' onClick={this.bookClick}>
+          <Card.Img variant="top" src={this.props.book.img} style={{height: '26rem'}}/>
           <Card.Body>
-            <Card.Title>{this.props.book.title}</Card.Title>
+            <Card.Title className='text-ellipsis'>{this.props.book.title}</Card.Title>
             <Card.Text>{this.props.book.asin}</Card.Text>
-            <Button variant="primary" onClick={this.bookClick}>
-              Click Me!
-            </Button>
+            
           </Card.Body>
         </Card>
-      </Col>
+        {
+          this.state.selected && <CommentArea asin={this.props.book.asin}/>
+        }
+        </div>
     );
   }
 }

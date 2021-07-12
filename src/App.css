@@ -38,7 +38,21 @@
 }
 
 .borderBook {
-    border: 5px solid green !important;
+    border: 5px solid #fbff00 !important;
     transform: scale(0.8);
     transition: transform 0.4s ease-in-out;
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.borderBookToggle {
+    border: 5px solid green !important;
+}
+
+.react-icon {
+    color: red;
 }
