@@ -1,14 +1,17 @@
 //import SingleBook from "./SingleBook";
-import { Component } from "react";
+import { useState } from "react";
 import { Form, Row } from "react-bootstrap";
 import SingleBook from "./SingleBook";
 
-class BookList extends Component {
-  state = {
-    query: "",
-  };
+const BookList = (props) =>{
 
-  render() {
+const [query,setQuery] = useState()
+
+  //state = {
+  //  query: "",
+  //}
+
+ 
     return (
       <>
         <Form className="ml-5">
@@ -17,9 +20,9 @@ class BookList extends Component {
             <Form.Control
               type="text"
               placeholder="Search"
-              value={this.state.query}
+              value={query}
               onChange={(e) => {
-                this.setState({ query: e.target.value });
+                setQuery( e.target.value );
               }}
             />
           </Form.Group>
@@ -27,8 +30,8 @@ class BookList extends Component {
         
         <Row style={{marginLeft:'8rem'}}>
           
-          {this.props.items
-            .filter(ele => ele.title.toLowerCase().includes(this.state.query))
+          {props.items
+            .filter(ele => ele.title.toLowerCase().includes(query))
             .map(item => (
               <SingleBook book={item} key={item._id}/>
             ))}
@@ -37,6 +40,5 @@ class BookList extends Component {
         
       </>
     );
-  }
 }
 export default BookList;
